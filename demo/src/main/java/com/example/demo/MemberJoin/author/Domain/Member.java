@@ -1,10 +1,8 @@
-package com.example.demo.MemberJoin.Domain;
+package com.example.demo.MemberJoin.author.Domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -15,16 +13,19 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @ToString
-
+@Builder
 @Entity
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 20)
+    @Column(length = 20, nullable = false)
     private String name;
+    @NotEmpty
+    @Column(unique = true)
     private String email;
+    @Column(length = 8)
     private String password;
     private String address;
 
@@ -38,7 +39,6 @@ public class Member {
         this.email=email;
         this.password=password;
         this.address=address;
-
     }
 
     public void updatePassword(String newPassword) {

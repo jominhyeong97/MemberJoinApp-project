@@ -1,6 +1,6 @@
-package com.example.demo.MemberJoin.Dto;
+package com.example.demo.MemberJoin.author.Dto;
 
-import com.example.demo.MemberJoin.Domain.Member;
+import com.example.demo.MemberJoin.author.Domain.Member;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

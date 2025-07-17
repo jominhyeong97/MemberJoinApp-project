@@ -1,8 +1,8 @@
-package com.example.demo.MemberJoin.Controller;
+package com.example.demo.MemberJoin.author.Controller;
 
-import com.example.demo.MemberJoin.Dto.CreateDto;
-import com.example.demo.MemberJoin.Dto.UpdateDto;
-import com.example.demo.MemberJoin.Service.Service;
+import com.example.demo.MemberJoin.author.Dto.CreateDto;
+import com.example.demo.MemberJoin.author.Dto.UpdateDto;
+import com.example.demo.MemberJoin.author.Service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +43,8 @@ public class Controller {
     @PatchMapping("/patch")
     public ResponseEntity<?> update(@RequestBody UpdateDto updateDto) {
         service.update(updateDto.getId(), updateDto.getNewPassword());
+        System.out.println(updateDto.getId());
+        System.out.println(updateDto.getNewPassword());
         return new ResponseEntity<>("ok",HttpStatus.CREATED);
     }
 //    회원탈퇴
