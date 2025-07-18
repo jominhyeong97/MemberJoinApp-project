@@ -6,3 +6,5 @@ findbyemailAnd~~ 로 여러조건 확인
 jpql로 fetchinnerjoin 구현
 페이징처리 활용해보기!
 @builder.default 많이 활용
+yml 분리 및 gitignore 설정
+common에 로그 분류작업 클래스(로그컨트롤)
