@@ -10,10 +10,12 @@ import lombok.*;
 @Builder
 
 public class DetailFindDto {
-    Long id;
-    String title;
-    String contents;
-    PostType postType;
+    private Long id;
+    private String title;
+    private String contents;
+    private PostType postType;
+    private String author_email;
+    private Long author_id;
 
     public static DetailFindDto fromEntity(Post post) {
         return DetailFindDto.builder()
@@ -21,6 +23,7 @@ public class DetailFindDto {
                 .title(post.getTitle())
                 .contents(post.getContents())
                 .postType(post.getPostType())
+                .author_email(post.getMember().getEmail())
                 .build();
     }
 

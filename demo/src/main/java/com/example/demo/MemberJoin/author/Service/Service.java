@@ -47,7 +47,8 @@ public class Service {
     }
         //    회원상세조회(id로)
         public FindDetailDto findDetail(Long id) {
-            return FindDetailDto.fromEntity(repository.findById(id).
+
+        return FindDetailDto.fromEntity(repository.findById(id).
                     orElseThrow(()->new NoSuchElementException("값이없습니다.")));
         }
 

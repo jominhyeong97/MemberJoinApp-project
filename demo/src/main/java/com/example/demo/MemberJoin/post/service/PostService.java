@@ -1,4 +1,5 @@
 package com.example.demo.MemberJoin.post.service;
+import com.example.demo.MemberJoin.author.Repository.Repository;
 import com.example.demo.MemberJoin.post.domain.Post;
 import com.example.demo.MemberJoin.post.dto.DetailFindDto;
 import com.example.demo.MemberJoin.post.dto.FindAllDto;
@@ -18,11 +19,14 @@ import java.util.stream.Collectors;
 public class PostService {
 
     final public PostRepository postRepository;
+    final public Repository memberRepository;
 
     @Autowired
-    public PostService(PostRepository postRepository) {
+    public PostService(PostRepository postRepository, Repository memberRepository) {
         this.postRepository = postRepository;
+        this.memberRepository = memberRepository;
     }
+
 
     public void postAdd(PostAddDto postAddDto) {
         Post post = PostAddDto.toEntity(postAddDto);

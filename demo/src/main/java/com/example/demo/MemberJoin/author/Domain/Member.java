@@ -1,5 +1,6 @@
 package com.example.demo.MemberJoin.author.Domain;
 
+import com.example.demo.MemberJoin.post.domain.Post;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
@@ -7,6 +8,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -33,6 +36,10 @@ public class Member {
     private LocalDateTime createdTime;
     @UpdateTimestamp
     private LocalDateTime updateTime;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @Builder.Default
+    private List<Post> postList = new ArrayList<>();
 
     public Member(String name, String email, String password, String address) {
         this.name=name;

@@ -22,6 +22,7 @@ public class FindDetailDto {
     private LocalDateTime createdTime;
     private LocalDateTime updateTime;
 
+
     public static FindDetailDto fromEntity(Member member) {
         return FindDetailDto.builder()
                 .id(member.getId())
@@ -29,6 +30,8 @@ public class FindDetailDto {
                 .email(member.getEmail())
                 .password(member.getPassword())
                 .address(member.getAddress())
+                .createdTime(member.getCreatedTime())
+                .updateTime(member.getUpdateTime())
                 .build();
     }
 

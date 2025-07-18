@@ -1,5 +1,6 @@
 package com.example.demo.MemberJoin.post.domain;
 
+import com.example.demo.MemberJoin.author.Domain.Member;
 import com.example.demo.MemberJoin.author.Domain.PostType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -16,14 +17,18 @@ import lombok.NoArgsConstructor;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
     @Column(length = 254,nullable = false)
-    String title;
+    private String title;
     @Column(length = 1000,nullable = false)
-    String contents;
+    private String contents;
     @Enumerated(EnumType.STRING)
-    PostType postType;
+    @Builder.Default
+    private PostType postType = PostType.OPEN;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private Member member;
 
     public void postModify(String newContents) {
         this.contents = newContents;
