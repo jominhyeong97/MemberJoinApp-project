@@ -8,3 +8,5 @@ jpql로 fetchinnerjoin 구현
 @builder.default 많이 활용
 yml 분리 및 gitignore 설정
 common에 로그 분류작업 클래스(로그컨트롤)
+	
+postService에서 fk 해놨고 조회시 author id 나올수 있게
